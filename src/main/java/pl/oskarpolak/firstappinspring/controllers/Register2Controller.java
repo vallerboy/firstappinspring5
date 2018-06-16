@@ -11,16 +11,16 @@ public class Register2Controller {
 
     @GetMapping("/register2")
     public String login(Model model) {
-        model.addAttribute("registerForm", new RegisterForm());
+        RegisterForm registerForm = new RegisterForm();
+        model.addAttribute("registerForm", registerForm);
         return "register2";
     }
 
     @PostMapping("/register2")
-    @ResponseBody
     public String login(@ModelAttribute RegisterForm registerForm){
         if(registerForm.getPassword().equals(registerForm.getPasswordRepeat())){
-            return "Zarejestrowano";
+            return "redirect:/login";
         }
-        return "Bledne dane";
+        return "register2";
     }
 }
