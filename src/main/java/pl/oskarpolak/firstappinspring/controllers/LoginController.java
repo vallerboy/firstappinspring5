@@ -17,9 +17,9 @@ public class LoginController {
 
     @PostMapping("/login")
     @ResponseBody
-    public String login(@RequestParam("login") String login,
-                        @RequestParam("password") String password){
-        if(login.equals("admin") && password.equals("admin")){
+    public String login(
+                        @RequestParam("password1") String password){
+        if( password.equals("admin")){
             return "Zalogowano";
         }
 
